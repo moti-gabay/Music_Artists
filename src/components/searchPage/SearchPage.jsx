@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Card from "../card/Card";
 
 
 
@@ -7,12 +9,12 @@ const SearchPage = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [name, setName] = useState("Coldplay")
+    const [name, setName] = useState("Coldplay");
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e);
-        // getApiData();
+        getApiData();
 
     }
     const getApiData = async () => {
@@ -52,14 +54,8 @@ const SearchPage = () => {
                 <button>Submin</button>
             </form>
             <ul>
-                {data.length > 0 && data?.map((a, i) => {
-                    return (
-                        <div key={i}>
-                            <p>{a.strArtist}</p>
-                            <img src={a.strArtistBanner} alt="" />
-                        </div>
-                    )
-                })}
+                {data.length > 0 ? data?.map((artist) => <Card key={artist.idArtist} artist={artist} />) :
+                    <p>Artist not found</p>}
 
             </ul>
         </>
