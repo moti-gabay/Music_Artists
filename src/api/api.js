@@ -5,14 +5,12 @@ const TOP_TRACK_URL = API_URL + "/track-top10.php?s=";
 
 export const getAritestByName = async (aritestName) => {
     try {
-        const res = await fetch(`${API_URL}/search.php?s=${encodeURIComponent(aritestName)}`);
-        const {artists} = await res.json();        
-        return artists
+        const res = await fetch(`${API_URL}/search.php?s=${aritestName}`);
+        const { artists } = await res.json();
+        return artists[0]
     } catch (error) {
         console.error(error)
     }
-
-
 }
 
 export const getTopTracks = async (aritestName) => {

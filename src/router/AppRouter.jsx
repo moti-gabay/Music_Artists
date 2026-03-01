@@ -6,7 +6,8 @@ export const AppRouter = () => {
     return (
         <Routes>
             <Route path='/' element={<SearchPage />} />
-            <Route path='/artistDetails/:aritestName' element={<ArtistDetail />} />
+            <Route path='/artist/:aritestName' element={<ArtistDetail />} />
+            <Route path='*' element={<h1>404 this page not fond</h1>} />
         </Routes>
     )
 }

@@ -1,12 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { formtDuration } from "../../utils/utils";
 
-const Card = ({ artist }) => {
+const Card = ({ track }) => {
 
-    const navigate = useNavigate()
+
     return (
-        <div onClick={() => navigate(`/artistDetails/${artist.strArtist}`)} >
-            <p>{artist.strArtist}</p>
-            <img src={artist.strArtistBanner} alt="" />
+        <div className="p-4 border rounded-lg bg-white shadow-sm flex justify-between items-center">
+            <div>
+                <p className="font-bold text-lg">{track.strTrack}</p>
+                <p className="text-sm text-gray-500">Album: {track.strAlbum}</p>
+            </div>
+            <p className="text-blue-600 font-mono">{formtDuration(track.intDuration)}</p>
         </div>
     )
 }
