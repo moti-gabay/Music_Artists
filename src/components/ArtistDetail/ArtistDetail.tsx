@@ -30,23 +30,55 @@ const ArtistDetail = () => {
     }
 
     return (
-        <div className="p-6 max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold mb-4">{aritest.strArtist}</h1>
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-blue-900 text-white p-4 md:p-8">
+            <div className="max-w-5xl mx-auto">
 
-            <img
-                className="w-full max-w-md rounded-lg shadow-md mb-4"
-                src={aritest.strArtistThumb || aritest.strArtistBanner}
-                alt={aritest.strArtist}
-            />
+                <button
+                    onClick={() => window.history.back()}
+                    className="mb-6 flex items-center text-gray-400 hover:text-white transition-colors"
+                >
+                    <span className="mr-2">←</span> Back to Search
+                </button>
 
-            <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-2">Biography</h2>
-                <p className="text-gray-700 leading-relaxed">{aritest.strBiographyEN}</p>
-            </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
-            <h3 className="text-2xl font-bold mb-3 border-b pb-2">Top 3 Songs</h3>
-            <div className="space-y-4">
-                {tracks?.map((t) => <Card key={t.idTrack} track={t} />)}
+                    <div className="lg:col-span-1 space-y-4">
+                        <div className="relative group">
+                            <img
+                                src={aritest.strArtistThumb}
+                                alt={aritest.strArtist}
+                                className="w-full rounded-2xl shadow-2xl border-2 border-blue-500/30 group-hover:border-blue-500 transition-all duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
+                            <h1 className="absolute bottom-4 left-4 text-3xl font-black tracking-tighter uppercase italic">
+                                {aritest.strArtist}
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-2 space-y-8">
+
+                        <section className="bg-white/5 backdrop-blur-lg p-6 rounded-2xl border border-white/10 shadow-xl">
+                            <h2 className="text-xl font-bold mb-4 text-blue-400 flex items-center">
+                                <span className="mr-2">📖</span> Artist Biography
+                            </h2>
+                            <p className="text-gray-300 leading-relaxed text-sm md:text-base max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                                {aritest.strBiographyEN}
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 className="text-xl font-bold mb-4 text-purple-400 flex items-center">
+                                <span className="mr-2">🎵</span> Top 3 Songs
+                            </h2>
+                            <div className="grid gap-3">
+                                {tracks?.map((t,index) => (
+                                    <Card index={index} key={t.idTrack} track={t} />
+                                ))}
+                            </div>
+                        </section>
+                    </div>
+                </div>
             </div>
         </div>
     );
