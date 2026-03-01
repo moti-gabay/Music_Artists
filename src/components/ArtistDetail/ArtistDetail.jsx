@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { getAritestByName, getTopTracks } from "../../api/api";
 import { formtDuration } from "../../utils/utils";
 import { Loader } from "../Loader";
@@ -9,6 +10,21 @@ const ArtistDetail = () => {
 
     const { aritestName } = useParams();
 
+
+    const { } = useQuery({
+        queryKey: ['aritest', aritestName],
+        queryFn: () => getAritestByName(aritestName),
+        enabled: !!aritestName
+    })
+
+    const {} = useQuery({
+        queryKey:['track',aritestName],
+        queryFn:() => getTopTracks(aritestName),
+        enabled:!!aritestName,
+        select:(data) => data.slice(0,3)
+    })
+
+    
     const [aritest, setAritest] = useState([]);
     const [tracks, setTracks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -43,7 +59,7 @@ const ArtistDetail = () => {
 
     }, [aritestName]);
 
-    if (loading) return <Loader/>
+    if (loading) return <Loader />
 
     return (
         <div>
