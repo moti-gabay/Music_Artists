@@ -1,21 +1,22 @@
 import { useState } from "react";
-import Card from "../card/Card";
+import Card from "../card/Card.js";
 import { getAritestByName } from "../../api/api.js";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { Aritest } from "../../typs/types.js";
 
 const SearchPage = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [queryName, setQueryName] = useState('');
+    const [searchTerm, setSearchTerm] = useState<string>('');
+    const [queryName, setQueryName] = useState<string>('');
 
-    const { data: artist, isLoading, isError, isFetching } = useQuery({
+    const { data: artist, isLoading, isError, isFetching } = useQuery<Aritest>({
         queryKey: ['searchAritest', queryName],
         queryFn: () => getAritestByName(queryName),
         enabled: !!queryName,
         retry: 1,
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (searchTerm.trim()) {
             setQueryName(searchTerm)

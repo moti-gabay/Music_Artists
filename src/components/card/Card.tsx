@@ -1,6 +1,7 @@
+import { Track } from "../../typs/types";
 import { formtDuration } from "../../utils/utils";
 
-const Card = ({ track }) => {
+const Card = ({ track }: { track: Track }) => {
 
 
     return (
