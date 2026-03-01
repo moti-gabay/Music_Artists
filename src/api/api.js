@@ -1,6 +1,26 @@
-import axios from "axois"
 
-export const getAritestByName = async() => {
-    const {data} = await axios.get("")
-    return data
+const API_URL = "https://www.theaudiodb.com/api/v1/json/123";
+
+const TOP_TRACK_URL = API_URL + "/track-top10.php?s=";
+
+export const getAritestByName = async (aritestName) => {
+    try {
+        const res = await fetch(`${API_URL}/search.php?s=${encodeURIComponent(aritestName)}`);
+        const {artists} = await res.json();        
+        return artists
+    } catch (error) {
+        console.error(error)
+    }
+
+
+}
+
+export const getTopTracks = async (aritestName) => {
+    try {
+        const res = await fetch(TOP_TRACK_URL + aritestName);
+        const { track } = await res.json();
+        return track
+    } catch (error) {
+        console.error(error)
+    }
 }
