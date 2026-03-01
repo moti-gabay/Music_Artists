@@ -1,16 +1,67 @@
-# React + Vite
+# 🎵 Music Artist Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application that allows users to search for their favorite music artists and explore their discography, biography, and top tracks.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Artist Search**: Search for any artist by name using a dedicated search form.
+* **Artist Cards**: Visual results displaying the artist's name and image.
+* **Detailed Artist Page**: Deep dive into an artist's profile:
+    * Artist Name and Image.
+    * Full Biography.
+    * **Top 3 Songs**: Displays name, album, and duration for the top tracks.
+* **State Management**: Optimized data fetching with loading spinners and error handling.
+* **Responsive Design**: Fully functional on both Mobile and Desktop (Tailwind CSS).
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **React** (Functional Components & Hooks).
+* **TypeScript** for type safety and better DX.
+* **TanStack Query** (React Query) for efficient data fetching and caching.
+* **React Router** for seamless navigation.
+* **Tailwind CSS** for modern, responsive styling.
+* **Axios** for API requests.
+* **API**: Powered by [TheAudioDB](https://www.theaudiodb.com/).
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these instructions to get a copy of the project up and running on your local machine.
+
+### Prerequisites
+
+* Node.js (Latest LTS version recommended)
+* npm or yarn
+
+### Installation & Running
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/moti-gabay/Music_Artists.git](https://github.com/moti-gabay/Music_Artists.git)
+    ```
+
+2.  **Navigate to the project folder**
+    ```bash
+    cd Music_Artists
+    ```
+
+3.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+4.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
+    *The app should now be running at `http://localhost:3000`.*
+
+## 📂 Project Structure
+
+* `src/api` - API service calls using Axios.
+* `src/components` - Reusable UI components (Loader, ArtistCard).
+* `src/pages` - Main page components (SearchPage, ArtistDetail).
+* `src/utils` - Helper functions (Duration formatting, etc.).
+* `src/types` - TypeScript interfaces and types.
+
+---
+**Submitted as part of the Home Assignment - Music Artists Search.**

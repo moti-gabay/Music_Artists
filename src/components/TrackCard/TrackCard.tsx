@@ -3,14 +3,12 @@ import { formtDuration } from "../../utils/utils";
 
 type CardProps = { index: number, track: Track }
 
-
-const Card = ({ track, index }: CardProps) => {
-
+const TrackCard = ({ track, index }: CardProps) => {
 
     return (
         <div
 
-            className="flex items-center justify-between p-4 bg-gradient-to-r from-white/5 to-transparent hover:from-blue-600/20 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group"
+            className="flex items-center justify-between p-4 bg-linear-to-r from-white/5 to-transparent hover:from-blue-600/20 rounded-xl border border-white/5 hover:border-blue-500/50 transition-all group"
         >
             <div className="flex items-center gap-4">
                 <span className="text-2xl font-black text-white/20 group-hover:text-blue-500 transition-colors">
@@ -34,4 +32,4 @@ const Card = ({ track, index }: CardProps) => {
     )
 }
 
-export default Card;
+export default TrackCard;

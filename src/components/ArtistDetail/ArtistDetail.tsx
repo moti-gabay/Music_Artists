@@ -1,10 +1,9 @@
 import { useParams } from "react-router-dom";
 import { getAritestByName, getTopTracks } from "../../api/api";
 import { useQuery } from "@tanstack/react-query";
-import { formtDuration } from "../../utils/utils";
 import { Loader } from "../loader/Loader";
-import Card from "../card/Card";
 import { Aritest, Track } from "../../typs/types";
+import TrackCard from "../TrackCard/TrackCard";
 
 const ArtistDetail = () => {
     const { aritestName } = useParams<{ aritestName: string }>();
@@ -30,7 +29,7 @@ const ArtistDetail = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-blue-900 text-white p-4 md:p-8">
+        <div className="min-h-screen bg-linear-to-br from-gray-900 via-black to-blue-900 text-white p-4 md:p-8">
             <div className="max-w-5xl mx-auto">
 
                 <button
@@ -49,7 +48,7 @@ const ArtistDetail = () => {
                                 alt={aritest.strArtist}
                                 className="w-full rounded-2xl shadow-2xl border-2 border-blue-500/30 group-hover:border-blue-500 transition-all duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
+                            <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent rounded-2xl"></div>
                             <h1 className="absolute bottom-4 left-4 text-3xl font-black tracking-tighter uppercase italic">
                                 {aritest.strArtist}
                             </h1>
@@ -73,7 +72,7 @@ const ArtistDetail = () => {
                             </h2>
                             <div className="grid gap-3">
                                 {tracks?.map((t,index) => (
-                                    <Card index={index} key={t.idTrack} track={t} />
+                                    <TrackCard index={index} key={t.idTrack} track={t} />
                                 ))}
                             </div>
                         </section>
