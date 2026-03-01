@@ -54,9 +54,9 @@ const SearchPage = () => {
                     </div>
                 </form>
 
-                {(isLoading || isFetching) && queryName && <Loader />}
+                {(isLoading || isFetching) && queryName && <Loader message="Loading Artist Details..." />}
 
-                {isError && <Error />}
+                {isError && <Error message="⚠️ Something went wrong. Please try again later." />}
 
                 {artist && !isFetching && <AritestCard artist={artist} />}
 

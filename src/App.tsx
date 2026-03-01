@@ -1,20 +1,15 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import SearchPage from './components/searchPage/SearchPage'
-import ArtistDetail from './components/ArtistDetail/ArtistDetail'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppRouter } from './router/AppRouter';
 
 const queryClient = new QueryClient();
 
 function App() {
-
   return (
     <QueryClientProvider client={queryClient}>
       <AppRouter />
     </QueryClientProvider>
-
   )
 }
 
-export default App
+export default App;

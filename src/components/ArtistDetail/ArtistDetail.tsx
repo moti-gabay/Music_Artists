@@ -22,7 +22,7 @@ const ArtistDetail = () => {
         select: (data) => data ? data.slice(0, 3) : [],
     });
 
-    if (isLoadingAritest || isLoadingTracks) return <Loader />;
+    if (isLoadingAritest || isLoadingTracks) return <Loader message="Loading Artist Details..." />;
 
     if (isAritestError || !aritest) {
         return <div className="text-red-500 p-6">Artist not found.</div>;
@@ -71,7 +71,7 @@ const ArtistDetail = () => {
                                 <span className="mr-2">🎵</span> Top 3 Songs
                             </h2>
                             <div className="grid gap-3">
-                                {tracks?.map((t,index) => (
+                                {tracks?.map((t, index) => (
                                     <TrackCard index={index} key={t.idTrack} track={t} />
                                 ))}
                             </div>
